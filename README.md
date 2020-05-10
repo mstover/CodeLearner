@@ -19,7 +19,7 @@ Before you can begin lesson one, you must set up some things on your computer.  
 up your *environment*, in computing lingo.  Here are the steps you need to accomplish before you can
 begin your first lesson:
 
-1. Install **Git** ([Git Home Page](https://https://git-scm.com/)).  You should be able to go to the
+1. Install **Git** ([Git Home Page](https://git-scm.com/)).  You should be able to go to the
 Downloads page and install the appropriate version for you OS (Mac, Windows, Linux, they are all covered).
    1. If you read the instructions provided on Git's website, you should be able to get Git correctly 
    installed.  If you're unsure, you may need to seek help from a friend, parent, or teacher.
