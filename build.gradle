@@ -1,0 +1,37 @@
+plugins {
+    id "com.github.node-gradle.node" version "2.2.3"
+    id "de.richsource.gradle.plugins.typescript" version "1.8.0"
+}
+
+group 'com.coinjema'
+version '1.x-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+import com.moowork.gradle.node.NodeExtension
+import com.moowork.gradle.node.variant.VariantBuilder
+
+node {
+    download = true
+}
+
+String nodeExecutable() {
+    NodeExtension nodeExt = NodeExtension.get(project)
+    return new VariantBuilder(nodeExt).build().nodeExec
+}
+
+compileTypeScript {
+    projectFile = new File("tsconfig.json")
+    compilerExecutable "${nodeExecutable()} node_modules/typescript/lib/tsc.js"
+    dependsOn "npmInstall"
+}
+
+npm_run {
+    args = ['build']
+    dependsOn compileTypeScript
+}
