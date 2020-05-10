@@ -4,13 +4,14 @@ Begin Learning to Code with Typescript
 ## Introduction
 
 CodeLearner is a Typescript framework for learning how to program.  The intention isn't to learn 
-*Typescript* specifically, but rather to learn how to learn to program in general.  **CodeLearner** assume zero
+*Typescript* specifically, but rather to learn how to learn to program in general.  **CodeLearner** 
+assumes zero
 knowledge of programming, though a knowledge of some computer basics will greatly help, such as:
 
 - Knowing how to use a browser (you wouldn't be here at this page if you didn't use a **browser**, most likely)
-- Knowing how to install programs (ie, such as Git and npm)
+- Knowing how to install programs (ie, such as Git and java)
 - Knowing in general how to edit text files
-- Understanding the most basic concepts of what a *terminal*, or *command line* is
+- Understanding the most basic concepts of what a *terminal*, or *command line* is and how to use one ./..
 
 ## Prior to Lesson One
 
@@ -35,7 +36,14 @@ Downloads page and install the appropriate version for you OS (Mac, Windows, Lin
     If instead you get a message that no java could be found, or you have an older version, then you 
     will need to install java from [JDK Downloads](https://www.oracle.com/java/technologies/javase-downloads.html)
 1. Install **Gradle** ([Gradle Home Page](https://gradle.org)).  Gradle is like Git in that it's a 
-command line application.  Once installed correctly, you should be able to run gradle commands. 
+command line application.  Once installed correctly (which just means unzipping it to where you want 
+it to be), you should be able to run gradle commands. 
+1. Once you have these three applications installed (git, java, gradle), you need them to be on your 
+executable *PATH* for it all to work correctly.  
+   1. Add the gradle/bin directory to your executable path ([?](#how-to-configure-your-executable-path)).  
+   1. Add the jdk/bin directory to your executable path.  Add git to your executable path (usually 
+git's installer does that for you).
+   1. You may need to add an environment variable for JAVA_HOME (set to the main jdk directory, not the bin directory)
 1. Clone this project.  
     1. Open your command line and "cd" to a directory where you want to recreate the CodeLearner project.
     1. once there, type "git clone https://github.com/mstover/CodeLearner.git codelearner".  That will download the project
@@ -53,3 +61,12 @@ command line application.  Once installed correctly, you should be able to run g
        Incorrect: Incorrect count for input string: 'a,b,c,d,e,f,g' expected 7 but was 0
        ```
 1. Now you are ready for [Lesson One](docs/lesson_one.md)
+
+## Some References
+
+### How to configure your executable path
+
+      1. If you are on [Windows, read this](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)
+      1. If you are on a Mac, edit your $HOME_DIRECTORY/.bash_profile file and add a line that says 
+   `export PATH=$PATH:<directory-containing-executable>` and replace the <directory-containing-executable> 
+   with the right value.
