@@ -1,2 +1,2 @@
 # CodeLearner
-Learn to Code with Typescript
+Begin Learning to Code with Typescript
