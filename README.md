@@ -68,5 +68,8 @@ git's installer does that for you).
 
 1. If you are on [Windows, read this](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)
 1. If you are on a Mac, edit your $HOME_DIRECTORY/.bash_profile file and add a line that says 
-   `export PATH=$PATH:<directory-containing-executable>` and replace the <directory-containing-executable> 
+   ```
+   export PATH=$PATH:<directory-containing-executable>
+   ``` 
+   and replace the <directory-containing-executable> 
    with the right value.
