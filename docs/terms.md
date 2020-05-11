@@ -7,7 +7,7 @@ your class.
 ### Method
 
 A *method* is a a chunk of code that can be called on an [object](#class), using the syntax `<obj>.<method>()`, 
-where <obj> is some value you have of a type (an interface, or class), and <method> is the name of the method 
+where `<obj>` is some value you have of a type (an interface, or class), and `<method>` is the name of the method 
 being called.  Some methods can be passed parameters.
 
 ### Property

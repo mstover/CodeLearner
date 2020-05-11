@@ -85,4 +85,6 @@ to know the total number of characters that have been passed to your accept(stri
 Currently, the getCount() method returns the number 0.  This is not correct.  In your accept method, you will need to call `input.length`
 and do something with the value (hint: it probably involves [variables](terms.md#variables)).
 
+After you have written your code, run `gradle npm_run` to run and see if you pass.
+
 That's all!  Good Luck!  Once you finish, 
