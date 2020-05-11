@@ -32,6 +32,6 @@ compileTypeScript {
 }
 
 npm_run {
-    args = ['build']
+    args = ['level_one']
     dependsOn compileTypeScript
 }

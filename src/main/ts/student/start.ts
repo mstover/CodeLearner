@@ -1,9 +1,9 @@
-import {LessonOne, StreamHandler, Teacher} from "../../tutor/level_one/levelOne";
+import {LessonOne, StreamHandler, Teacher} from "../tutor/level_one/levelOne";
 
 
 class MySolution implements StreamHandler, LessonOne {
 
-  accept(character: string): void {
+  accept(input: string): void {input.length
   }
 
   getCount(): number {

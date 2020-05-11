@@ -3,6 +3,6 @@
     "typescript": "3.8.3"
   },
   "scripts": {
-    "build": "node build/ts/student/level_one/student.js"
+    "level_one": "node build/ts/student/start.js"
   }
 }

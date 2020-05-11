@@ -60,7 +60,32 @@ git's installer does that for you).
        Testing 'Random Strings: ', '`', 'YF'
        Incorrect: Incorrect count for input string: 'a,b,c,d,e,f,g' expected 7 but was 0
        ```
-1. Now you are ready for [Lesson One](docs/lesson_one.md)
+## Structure of CodeLearner
+ You are now ready to start [Level One](docs/level_one.md)
+ 
+ CodeLearner  is a progressive plan that takes you from the very simplist exercise through to some very 
+complex programming tasks.  You will get there step by step, and you will build on your own code the 
+whole time.  
+
+There are multiple goals. One is to simply learn how to write programming code.  But in addition, there is a focus
+on teaching you how to write *good* code, that is easily maintained, extended, flexible, understandable, etc.  Because
+you will need to reuse your own code.  Each lesson builds on previous lessons, with the idea that what you
+built for a previous lesson is likely to be at least somewhat relevant to future lessons.  If you write
+code well, you will find you're able to reuse your code easily and quickly.  If you write badly designed
+code (and you will!), you will find yourself facing the headache of upgrading previous code to handle some new
+challenge, while still needing to handle previous challenges.
+
+That is what programming is really about.  How your design choices affect how powerful your code is in the face
+ of changing circumstance, and changing requirements.  Something every programmer quickly becomes familiar with.
+ 
+ What CodeLearner is not, is a Computer Science course.  The focus is on practical matters of coding, and code
+ design, as opposed to learning about low-level algorithms and mathematical constructs.  Naturally we will go over
+ sorting, hashing, data structures, but I we won't be expecting you to write a sort algorithm or a HashMap.  Rather, 
+ we'll teach you how to use them.
+ 
+ Each Level in CodeLearner has many Lessons.  As you finish all the lessons
+ 
+ So, [get started](docs/level_one.md)!
 
 ## Some References
 

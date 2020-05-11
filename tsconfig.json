@@ -4,6 +4,5 @@
     "lib": ["es5", "dom"],
     "strict": true
   },
-  "include": ["src"],
-  "files": ["src/main/ts/student/level_one/student.ts"]
+  "include": ["src"]
 }
