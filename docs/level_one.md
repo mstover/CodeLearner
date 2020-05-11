@@ -70,7 +70,7 @@ that is available on the `Teacher` class, called "testLessonOne", and passes in 
 that creates an object of type `MySolution`, which is the class you are going to finish writing.  In 
 other words, we're handing in the assignment, and the teacher is going to figure out if you did it right.
 
-##### What is the assignment for Lesson One?
+#### What is the assignment for Lesson One?
 For Lesson One, you have a class that implements two [interfaces](terms.md#interface).  They are `StreamHandler`, 
 which declares the method "accept(string)", and `LessonOne`, which declares the method "getCount()".  
 [Declaring vs Defining](terms.md#declaring-vs-defining).  So, the question is, when will Teacher call those methods and what 
