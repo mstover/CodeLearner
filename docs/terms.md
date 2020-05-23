@@ -1,6 +1,6 @@
 ### Interface
 
-And interface is a collection of [methods](#method) that must be implemented by any class that "implements" the interface.
+An interface is a collection of [methods](#method) that must be implemented by any class that "implements" the interface.
 It is like a promise to any code that receives your class, that they can call any of those methods on
 your class. 
 
@@ -92,3 +92,14 @@ which evaluates to true.  Another:
 ```a == b```
 
 which evaluates to true if a is equal to b, and false otherwise.  
+
+### Compile
+Compiling code is the process of converting the "source" code, which is what you write, into a form 
+the computer can understand.  When code doesn't "compile", it means this translation process
+failed due to some issue with your source code.
+
+### Import
+Importing means referring to code that lies in other files or somewhere else other than the current
+source file.  Different programming languages have different ways of importing external code.  Without
+importing, the compiler doesn't know where to get these external classes and resources, and the 
+compiler will generally not make many assumptions about where to find files, so you need to specify.

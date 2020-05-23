@@ -115,7 +115,7 @@ to pass lesson 1!
 #### What is the assignment for Lesson Two?
 
 For Lesson Two, we need to update the ```MySolution``` class to implement the "LessonTwo" interface. 
-Remember [What is and Interface](terms.md#interface).  Go ahead and append ```, LessonTwo``` to 
+Remember [What is an Interface](terms.md#interface).  Open start.js in your text editor, and append ", LessonTwo" to 
 the end of the line ```class MySolution implements StreamHandler, LessonOne```.
 
 Run ```gradle npm_run```.
@@ -152,7 +152,10 @@ To know where to go to get these tools, programmers read documentation and/or th
 Or they learn by example or from their friends where to find the classes they want to use in
 their own code.  For now, you have learned by reading this documentation!
 
-You will then need to update your MySolution class with a new method called "getCountWithinQuotes".
+You will then need to update your MySolution class with a new method called "getCountWithinQuotes". 
+Why?  Because LessonTwo is an [interface](terms.md#interface) that demands any class that implements
+it must implement a method called "getCountWithinQuotes()".
+
 The requirements are:
 1. Same as Lesson One - your method ```getCount()``` must still return a total count of
 characters sent in strings.
@@ -160,6 +163,8 @@ characters sent in strings.
 single quote character ```"```. It will then receive more strings, and will later be
 called with another single quote character.  Your solution must keep track of how many
 total characters come between two quotes.
+1. The above may happen many times, and your code must continue tallying the number of
+characters that come between single quote strings
 1. Return the total between quotes when ```getCountWithinQuotes``` is called.
 
 To accomplish this, you will need more [class fields](terms.md#variables), and you will
