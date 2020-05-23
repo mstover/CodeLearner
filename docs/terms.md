@@ -70,3 +70,25 @@ as we say, but I think eventually you will find you wished you had some interfac
 can just give you, you will have to see for yourself, the power of the interface.  However, you will note that
 even Lesson One of the CodeLearner project defines some interfaces that make it easier for you to jump right
 in.
+
+### Comments in Code
+In your files that hold code, you can write comments that the computer (the compiler, the interpreter)
+will ignore.  These comments are for people to read to help understand the code.  For Typescript,
+the two slashes, like ```//``` indicates the rest of that line is a comment.  For a larger, multiline
+comment, we use ```/* Here is a big comment, many many lines */```.  The comment begins and ends with 
+the combo  of / and *.
+
+Sometimes we "comment out" lines of code so that they will not be run, but if we ever do want them
+to run, all we have to do is removed the ```//``` at the start of the line.
+
+### Conditionals
+A conditional is some code that evaluates to a boolean value.  A boolean value is a value
+that is either true or false.  A simple conditional expression is:
+
+```3 > 0```
+
+which evaluates to true.  Another:
+
+```a == b```
+
+which evaluates to true if a is equal to b, and false otherwise.  

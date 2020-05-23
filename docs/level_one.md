@@ -2,6 +2,15 @@
 
 ## Lesson One
 
+Before you can work on lesson one, you will need to open your command line application (Command Prompt in Windows, Terminal on a Mac), and "cd" to the codelearner directory
+you created in the introduction.  For me, this looks like:
+  ```
+ cd Development  
+ cd codelearner
+  ```
+Then make sure you are up-to-date with the current codelearner project:
+```git pull```
+
 The very first task is very simple, but being the first, you need to get used to the project structure 
 and how things work.  
 
@@ -87,4 +96,89 @@ and do something with the value (hint: it probably involves [variables](terms.md
 
 After you have written your code, run `gradle npm_run` to run and see if you pass.
 
-That's all!  Good Luck!  Once you finish, 
+That's all!  Good Luck!
+ 
+ ## Lesson Two
+ For Lesson Two, again you will need to open your commmand prompt, change directory to the codelearner
+ project, and get updated with ```git pull```.  
+ 
+ You will continue working in the file **src/main/ts/student/start.ts**.  There is a commented out
+ line at the bottom [what does commented out mean?](terms.md#comments-in-code):
+ 
+ ```// new Teacher().testLessonTwo(() => new MySolution());```
+
+By removing the slashes, we will "activate" this line of code, which will test your solution for
+lesson two.  Go ahead and uncomment it, and run the tests (```gradle npm_run```).  See how it 
+does not pass to begin.  Keep the test for lesson one - your solution to lesson two needs to continue
+to pass lesson 1!
+
+#### What is the assignment for Lesson Two?
+
+For Lesson Two, we need to update the ```MySolution``` class to implement the "LessonTwo" interface. 
+Remember [What is and Interface](terms.md#interface).  Go ahead and append ```, LessonTwo``` to 
+the end of the line ```class MySolution implements StreamHandler, LessonOne```.
+
+Run ```gradle npm_run```.
+
+Why run it now?  We both know it won't pass, but by frequently getting feedback on everything
+you do in the code, you will get a sense of what each and every change means and what impact it has.  
+For instance, after making the change above and then running, you will see that there is now
+a different failure - a more serious one than just not passing the test.  The code doesn't [compile](terms.md#compile)!
+
+Now we see:
+
+```
+src/main/ts/student/start.ts(4,54): error TS2304: Cannot find name 'LessonTwo'.
+   
+   FAILURE: Build failed with an exception.
+   
+   * What went wrong:
+   Execution failed for task ':compileTypeScript'.
+   ...<more-info below>...
+```
+
+The compiler is telling us it can't find "LessonTwo", which we added as an interface that
+our class is going to implement.  If we go back to the very first line in our code:
+
+```import {LessonOne, StreamHandler, Teacher} from "../tutor/level_one/levelOne";```
+
+You may notice this list - *LessonOne*, *StreamHandler*, *Teacher*, is everything our file 
+was using previously.  Now, we have added a new element - *LessonTwo* - and likewise, we 
+need to ["import"](terms.md#import) it.  So let's update it like so:
+
+```import {LessonOne, LessonTwo, StreamHandler, Teacher} from "../tutor/level_one/levelOne```
+
+To know where to go to get these tools, programmers read documentation and/or they read code.  
+Or they learn by example or from their friends where to find the classes they want to use in
+their own code.  For now, you have learned by reading this documentation!
+
+You will then need to update your MySolution class with a new method called "getCountWithinQuotes".
+The requirements are:
+1. Same as Lesson One - your method ```getCount()``` must still return a total count of
+characters sent in strings.
+2. The ```accept(input:string)``` method may be called with an input that contains a 
+single quote character ```"```. It will then receive more strings, and will later be
+called with another single quote character.  Your solution must keep track of how many
+total characters come between two quotes.
+1. Return the total between quotes when ```getCountWithinQuotes``` is called.
+
+To accomplish this, you will need more [class fields](terms.md#variables), and you will
+need to learn how to use [conditionals](terms.md#conditionals).  Conditionals can be used
+in "if" statements that can cause one block of code to be executed if the conditional is
+true, and another block of code if the conditional is false:
+
+```
+if(a == '"') {
+    // do one thing
+} else {
+    // do something else
+}
+```
+
+The above asks if the variable "a" is equal to a string that contains just a single 
+quote character.  You can see how that might be useful for this assignment!
+
+
+
+
+
