@@ -102,6 +102,10 @@ That's all!  Good Luck!
  For Lesson Two, again you will need to open your commmand prompt, change directory to the codelearner
  project, and get updated with ```git pull```.  
  
+ 
+>*Your solution to Lesson Two needs to continue being correct for Lesson One, so don't  delete anything
+ from the code.*
+ 
  You will continue working in the file **src/main/ts/student/start.ts**.  There is a commented out
  line at the bottom [what does commented out mean?](terms.md#comments-in-code):
  
@@ -109,14 +113,18 @@ That's all!  Good Luck!
 
 By removing the slashes, we will "activate" this line of code, which will test your solution for
 lesson two.  Go ahead and uncomment it, and run the tests (```gradle npm_run```).  See how it 
-does not pass to begin.  Keep the test for lesson one - your solution to lesson two needs to continue
-to pass lesson 1!
+does not pass to begin.  
+
+**Keep the test for lesson one - your solution to lesson two needs to continue
+to pass lesson 1!**
 
 #### What is the assignment for Lesson Two?
-
-For Lesson Two, we need to update the ```MySolution``` class to implement the "LessonTwo" interface. 
+ 
+For Lesson Two, we need to update the ```MySolution``` class to implement the "LessonTwo" interface.
 Remember [What is an Interface](terms.md#interface).  Open start.js in your text editor, and append ", LessonTwo" to 
-the end of the line ```class MySolution implements StreamHandler, LessonOne```.
+the end of the line:
+
+```class MySolution implements StreamHandler, LessonOne```.
 
 Run ```gradle npm_run```.
 
@@ -183,6 +191,41 @@ if(a == '"') {
 The above asks if the variable "a" is equal to a string that contains just a single 
 quote character.  You can see how that might be useful for this assignment!
 
+## Lesson Three
+
+Again for Lesson Three, leave all code as is - your code should still pass Lesson One and Lesson Two tests.
+We will only be adding to it.
+
+For Lesson One and Two, you need to keep track of a sum that represented how many characters
+had been passed to the ```accept(string)``` method.  This time, we're going to learn how to keep 
+a different sort of "sum"  with string concatenation.  "Concatenation" simply means to add to the 
+end.  Imagine I have two strings "Hello" and "World".  What might the expression ```"Hello" + "World"```
+evaluate to?  This is called "string concatenation", and the result is as you might expect, "HelloWorld".
+If you want a space between, you can add it in: ```"Hello" + " " + "World"```.
+
+Begin by again opening the command prompt and changing to the directory of your project.  Open start.js
+in your favorite text editor.  Append a new interface to the list of interfaces implemented by your 
+class *MySolution*: LessonThree.
+
+```class MySolution implements StreamHandler, LessonOne, LessonTwo, LessonThree```
+
+For this interface, you will need to implement a new method, called ```getWholeString():string```.
+It takes no parameters and returns a string. 
+
+You will also have to add the line at the end of start.js that hands in your lesson three assignment
+to the teacher:
+
+```new Teacher().testLessonThree(() => new MySolution());```
+
+Go ahead and add that line and run ```gradle npm_run``` and see that the code does not pass the new
+assignment.
+
+### Lesson Three Requirements
+1. Return, as one string, all the strings that have been passed to your ```accept(string)``` method, 
+concatenated in order.
+1.  That's it.
+
+run ```gradle npm_run``` and make it pass the tests.
 
 
 

@@ -27,6 +27,10 @@ export interface LessonTwo {
     getCountWithinQuotes(): number;
 }
 
+export interface LessonThree {
+    getWholeString(): string;
+}
+
 export class Teacher {
 
     /**
@@ -76,7 +80,25 @@ export class Teacher {
         if (testResult.success) console.log("Success!")
         else console.log("Incorrect: " + testResult.response);
         return testResult;
+    }
 
+    public testLessonThree(student: () => StreamHandler & LessonOne & LessonTwo & LessonThree) {
+        console.log("\nTesting Lesson Three");
+        let testResult = new TestResult(true, "");
+        [
+            ["H", "e", "l", "lo", " ", "W", "o", "r", "l", "d"],
+            ["This", " ", "is", " ", "Lesson", " ", "Three"],
+            this.generateRandomLessonTwo("Randome Strings: ")
+        ].forEach((value, index, arr) => {
+            console.log("Testing '" + value.join("', '") + "'");
+            if (testResult.success) {
+                var result = this._testLessonThree(student.apply(this), value);
+                if (!result.success) testResult = result;
+            }
+        });
+        if (testResult.success) console.log("Success!")
+        else console.log("Incorrect: " + testResult.response);
+        return testResult;
     }
 
     private generateRandomLessonTwo(starterValue: string) {
@@ -122,10 +144,7 @@ export class Teacher {
     }
 
     private _testLessonOne(student: StreamHandler & LessonOne, testStrings: string[]): TestResult {
-        for (let i = 0; i < testStrings.length; i++) {
-            var testString = testStrings[i];
-            student.accept(testString);
-        }
+        this.sendTestStrings(testStrings, student);
         let studentRes = student.getCount();
         let totalLength = testStrings.map(value => value.length)
             .reduce((tot: number, value: number, i: number, arr: number[]) => tot + value);
@@ -135,10 +154,7 @@ export class Teacher {
     }
 
     private _testLessonTwo(student: StreamHandler & LessonOne & LessonTwo, testStrings: string[]) {
-        for (let i = 0; i < testStrings.length; i++) {
-            var testString = testStrings[i];
-            student.accept(testString);
-        }
+        this.sendTestStrings(testStrings, student);
         let studentRes = student.getCountWithinQuotes();
         var inQuote = false;
         let inQuoteArr = testStrings
@@ -152,9 +168,24 @@ export class Teacher {
         let totalLength = inQuoteArr.length > 0 ? inQuoteArr
                 .reduce((tot: number, value: number, i: number, arr: number[]) => tot + value)
             : 0;
-        console.log(totalLength + " for " + testStrings);
         if (studentRes == totalLength) return new TestResult(true, "");
         else return new TestResult(false, "Incorrect count for input string: '" + testStrings +
             "' expected " + totalLength + " but was " + studentRes);
+    }
+
+    private sendTestStrings(testStrings: string[], student: StreamHandler) {
+        for (let i = 0; i < testStrings.length; i++) {
+            var testString = testStrings[i];
+            student.accept(testString);
+        }
+    }
+
+    private _testLessonThree(student: StreamHandler & LessonThree, testStrings: string[]) {
+        this.sendTestStrings(testStrings, student);
+        let studentResponse = student.getWholeString();
+        let correctAnswer = testStrings.join("");
+        if (studentResponse == correctAnswer) return new TestResult(true, "");
+        else return new TestResult(false, "Incorrect whole string for input string: '" + testStrings +
+            "' expected " + correctAnswer + " but was " + studentResponse);
     }
 }
