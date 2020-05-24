@@ -196,6 +196,7 @@ quote character.  You can see how that might be useful for this assignment!
 Again for Lesson Three, leave all code as is - your code should still pass Lesson One and Lesson Two tests.
 We will only be adding to it.
 
+
 For Lesson One and Two, you need to keep track of a sum that represented how many characters
 had been passed to the ```accept(string)``` method.  This time, we're going to learn how to keep 
 a different sort of "sum"  with string concatenation.  "Concatenation" simply means to add to the 
@@ -203,11 +204,15 @@ end.  Imagine I have two strings "Hello" and "World".  What might the expression
 evaluate to?  This is called "string concatenation", and the result is as you might expect, "HelloWorld".
 If you want a space between, you can add it in: ```"Hello" + " " + "World"```.
 
-Begin by again opening the command prompt and changing to the directory of your project.  Open start.js
+Begin by again opening the command prompt and changing to the directory of your project.  Run ```git pull``` 
+to grab the latest CodeLearner files. Open start.js
 in your favorite text editor.  Append a new interface to the list of interfaces implemented by your 
 class *MySolution*: LessonThree.
 
 ```class MySolution implements StreamHandler, LessonOne, LessonTwo, LessonThree```
+
+And don't forget to add "LessonThree" to the import statement (the very first line of
+your file).
 
 For this interface, you will need to implement a new method, called ```getWholeString():string```.
 It takes no parameters and returns a string. 
