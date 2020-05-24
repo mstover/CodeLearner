@@ -91,6 +91,7 @@ That is what programming is really about.  How your design choices affect how po
 Full lesson list:
 1. [Lesson One](docs/level_one.md#lesson-one)
 1. [Lesson Two](docs/level_one.md#lesson-two)
+1. [Lesson Three](docs/level_one.md#lesson-three)
 
 ### How to configure your executable path
 
