@@ -31,6 +31,10 @@ export interface LessonThree {
     getWholeString(): string;
 }
 
+export interface LessonFour {
+    getQuotedString(): string;
+}
+
 export class Teacher {
 
     /**
@@ -93,6 +97,25 @@ export class Teacher {
             console.log("Testing '" + value.join("', '") + "'");
             if (testResult.success) {
                 var result = this._testLessonThree(student.apply(this), value);
+                if (!result.success) testResult = result;
+            }
+        });
+        if (testResult.success) console.log("Success!")
+        else console.log("Incorrect: " + testResult.response);
+        return testResult;
+    }
+
+    public testLessonFour(student: () => StreamHandler & LessonFour) {
+        console.log("\nTesting Lesson Four");
+        let testResult = new TestResult(true, "");
+        [
+            ["H", "e", "l", "lo", "=", '"', "W", "o", "r", "l", "d", '"'],
+            ["This", '"', "is", '"', "Lesson", " ", '"', "Three", '"'],
+            this.generateRandomLessonTwo("Randome Strings: ")
+        ].forEach((value, index, arr) => {
+            console.log("Testing '" + value.join("', '") + "'");
+            if (testResult.success) {
+                var result = this._testLessonFour(student.apply(this), value);
                 if (!result.success) testResult = result;
             }
         });
@@ -187,5 +210,24 @@ export class Teacher {
         if (studentResponse == correctAnswer) return new TestResult(true, "");
         else return new TestResult(false, "Incorrect whole string for input string: '" + testStrings +
             "' expected " + correctAnswer + " but was " + studentResponse);
+    }
+
+    private _testLessonFour(student: StreamHandler & LessonFour, testStrings: string[]) {
+        this.sendTestStrings(testStrings, student);
+        let studentRes = student.getQuotedString();
+        var inQuote = false;
+        let inQuoteArr = testStrings
+            .filter(s => {
+                if (s == '"') {
+                    inQuote = !inQuote;
+                    return false;
+                } else return inQuote;
+            });
+        let quotedString = inQuoteArr.length > 0
+            ? inQuoteArr.join("")
+            : 0;
+        if (studentRes == quotedString) return new TestResult(true, "");
+        else return new TestResult(false, "Incorrect count for input string: '" + testStrings +
+            "' expected '" + quotedString + "' but was '" + studentRes+"'");
     }
 }

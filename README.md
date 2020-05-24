@@ -92,6 +92,7 @@ Full lesson list:
 1. [Lesson One](docs/level_one.md#lesson-one)
 1. [Lesson Two](docs/level_one.md#lesson-two)
 1. [Lesson Three](docs/level_one.md#lesson-three)
+1. [Lesson Four](docs/level_one.md#lesson-four)
 
 ### How to configure your executable path
 

@@ -3,7 +3,7 @@ import {LessonOne, StreamHandler, Teacher} from "../tutor/level_one/levelOne";
 
 class MySolution implements StreamHandler, LessonOne {
 
-  accept(input: string): void {input.length
+  accept(input: string): void {
   }
 
   getCount(): number {

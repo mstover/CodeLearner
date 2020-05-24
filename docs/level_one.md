@@ -171,6 +171,10 @@ characters sent in strings.
 single quote character ```"```. It will then receive more strings, and will later be
 called with another single quote character.  Your solution must keep track of how many
 total characters come between two quotes.
+1. The first " character your ```accept(string)``` methods sees is the START quote, and the 
+next is the END quote. If more come, the next will be a START quote, and then END.  START
+END START END.  So, by "between" quotes, we mean any strings that are delivered after a
+START quote, but before an END quote.
 1. The above may happen many times, and your code must continue tallying the number of
 characters that come between single quote strings
 1. Return the total between quotes when ```getCountWithinQuotes``` is called.
@@ -232,6 +236,27 @@ concatenated in order.
 
 run ```gradle npm_run``` and make it pass the tests.
 
+## Lesson Four
 
+You know the drill, open command prompt, goto your directory, git pull, open start.js in
+an editor, leave all your current code, it still needs to work.  Let's go.
+
+Make your MySolution class implement the interface  "LessonFour".  Import LessonFour as
+you have imported the other interfaces.  Add a new line to hand in LessonFour to the Teacher.
+
+The new LessonFour interface has a new method for you to return your result.  You must implement
+this method, called ```getQuotedString```.
+
+In Lesson Three, you learned about string concatentation.  And in Lesson Two you figured
+out how to count only the characters that came to the ```accept(string)``` method between
+two quote marks.  Now, you're going to create a string, with string concatenation, that
+only includes the characters that come between the quote marks.  You already have the logic
+that knows when a the ```accept(string)``` input parameter is between quotes so you know
+what to do!
+
+### Lesson Four Requirements
+1. Return, as one string, all the strings that have been passed to your ```accept(string)``` 
+method, ***if they come between two quotation marks***.
+1. That's it.
 
 
