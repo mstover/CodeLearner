@@ -139,11 +139,12 @@ myArray[myArray.length] = "Hello";
 myArray[myArray.length] = " ";
 myArray[myArray.length] = "World";
 ```
-In the first line, the, we create the array with no elements.  In the second line, the 
+In the first line, we create the array with no elements.  In the second line, the 
 length of the array is 0, and we set the value of the 0-th element to "Hello".  The 0-th
 element doesn't exist when we do that, but Typescript automatically expands the array to have
 one element, initially empty, into which we put the value "Hello".  
-Then in line 2, the length is 1, and in line three, the length is 2, and after line three
+
+Then in line 3, the length is 1, and in line 4, the length is 2, and after line 4
 the length of the array is 3.  If counting started at 1, this would not work (we would have
 to make it read ```myArray[myArray.length+1] = "blah blah";```).
 You will note you can do math inside the square brackets to calculate an index value.
