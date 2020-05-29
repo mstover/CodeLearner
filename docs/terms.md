@@ -103,3 +103,46 @@ Importing means referring to code that lies in other files or somewhere else oth
 source file.  Different programming languages have different ways of importing external code.  Without
 importing, the compiler doesn't know where to get these external classes and resources, and the 
 compiler will generally not make many assumptions about where to find files, so you need to specify.
+
+### What Is An Array
+An array is like a list of objects, or values.  You can have a list of string values - 
+```string[]```, or a list of number values - ```number[]```, or a list of any kind of value
+you like.  "Kind of value" essentially means "type".  So you can have a list of any type - 
+```Teacher[]```, or ```MySolution[]```.  
+
+An array in Typescript can grow, be added to, you can remove values from it, you count them,
+you can [iterate](#iteration) over them, etc.  If you have an array with no elements in it:
+
+```var myArray: string[] = [];```
+
+Then you can add elements like so: 
+
+```myArray[0] = "Hello";
+   myArray[1] = " ";
+   myArray[2] = "World"
+```
+
+And now your array, printed to the console, looks like:
+
+```
+[ "Hello", " ", "World"]
+```
+
+It has three element, with indices of 0, 1, and 2.  As with most things in computing, counting
+starts at zero.  Something to note about that is that you can thus add new elements to the
+end of a list easily:
+
+```
+myArray: string[] = [];
+myArray[myArray.length] = "Hello";
+myArray[myArray.length] = " ";
+myArray[myArray.length] = "World";
+```
+In the first line, the, we create the array with no elements.  In the second line, the 
+length of the array is 0, and we set the value of the 0-th element to "Hello".  The 0-th
+element doesn't exist when we do that, but Typescript automatically expands the array to have
+one element, initially empty, into which we put the value "Hello".  
+Then in line 2, the length is 1, and in line three, the length is 2, and after line three
+the length of the array is 3.  If counting started at 1, this would not work (we would have
+to make it read ```myArray[myArray.length+1] = "blah blah";```).
+You will note you can do math inside the square brackets to calculate an index value.

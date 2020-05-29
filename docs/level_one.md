@@ -259,4 +259,53 @@ what to do!
 method, ***if they come between two quotation marks***.
 1. That's it.
 
+## Lesson Five
+
+Please open your command prompt, goto your directory, run ```git pull```, open start.js in
+an editor and leave all your current code - it still needs to work.
+
+Import the interface ```LessonFive``` as you have imported the other interfaces, and
+make your MySolution class implement it.  LessonFive includes one method that you must
+implement, called ```getAllQuotedStrings(): string[]```.
+
+You'll not that this method requires that you return ```string[]```.  You know what a 
+string is, but what is the "[]"?  This is markup that indicates this is an [Array of strings](terms.md#what-is-an-array).
+
+In Lesson Four, you needed to add all string values that came between quotes to a single
+string.  Now, what we want is a list of all the strings that came between quotes.  We want them
+all kept separate.  So, for instance, let's say the input to your ```accept(string)``` method
+looks like:
+
+'first'  
+'name'  
+'='  
+'"'  
+'Rog'  
+'er'  
+'"'  
+'last'  
+'name'  
+'='  
+'"'  
+'Sm'  
+'it'  
+'h'  
+'"'  
+
+Your ```accept(string)``` method is called 15 times, once each for those strings, and then
+the Teacher calls your ```getAllQuotedStrings(): string[]``` method.  What does Teacher
+expect the answer to be?
+
+```["Roger", "Smith"]```
+
+So, you need to *concatenate* all the strings that come before a single START and END quote,
+but, when a second START quote comes along, you need to start a new string and not just
+keep adding to the first string.  You need to keep track of all the quoted strings you get
+in a list - in an array - and return that array when asked.
+
+You will need a class field that holds your array.  You may need other class fields too to
+hold intermediate values.  
+
+Good Luck!
+
 
