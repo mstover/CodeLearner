@@ -117,7 +117,8 @@ you can [iterate](#iteration) over them, etc.  If you have an array with no elem
 
 Then you can add elements like so: 
 
-```myArray[0] = "Hello";
+```
+   myArray[0] = "Hello";
    myArray[1] = " ";
    myArray[2] = "World"
 ```
