@@ -35,6 +35,10 @@ export interface LessonFour {
     getQuotedString(): string;
 }
 
+export interface LessonFive {
+    getAllQuotedStrings(): string[];
+}
+
 export class Teacher {
 
     /**
@@ -111,7 +115,7 @@ export class Teacher {
         [
             ["H", "e", "l", "lo", "=", '"', "W", "o", "r", "l", "d", '"'],
             ["This", '"', "is", '"', "Lesson", " ", '"', "Three", '"'],
-            this.generateRandomLessonTwo("Randome Strings: ")
+            this.generateRandomLessonTwo("Random Strings: ")
         ].forEach((value, index, arr) => {
             console.log("Testing '" + value.join("', '") + "'");
             if (testResult.success) {
@@ -124,12 +128,32 @@ export class Teacher {
         return testResult;
     }
 
+    public testLessonFive(student: () => StreamHandler & LessonFive) {
+        console.log("\nTesting Lesson Five");
+        let testResult = new TestResult(true, "");
+        [
+            ["name", "=", '"', "Roger", '"'],
+            ["<", "property", ' ', 'name', '=', '"', 'lang', '"', ' ', 'value', '=', '"', 'English', '"', '/>'],
+            ['a=', '"', 'b', '"', 'b=', '"', 'c', '"', 'c=', '"', 'd', '"', 'd=', '"', 'e', '"', 'asdfasdf'],
+            this.generateRandomLessonTwo("Random String:")
+        ].forEach((value, index, arr) => {
+            console.log("Testing '" + value.join("', '") + "'");
+            if (testResult.success) {
+                var result = this._testLessonFive(student.apply(this), value);
+                if (!result.success) testResult = result;
+            }
+        });
+        if (testResult.success) console.log("Success!")
+        else console.log("Incorrect: " + testResult.response);
+        return testResult;
+    }
+
     private generateRandomLessonTwo(starterValue: string) {
-        let numStrings = Math.floor(Math.random() * 20) + 3;
+        let numStrings = Math.floor(Math.random() * 40) + 30;
         var arr: string[] = [starterValue];
         var qCount = 0;
         for (let i = 1; i < numStrings + 1; i++) {
-            if (Math.random() > 0.8) {
+            if (Math.random() > 0.85) {
                 arr[i] = '"';
                 qCount++;
             } else {
@@ -228,6 +252,37 @@ export class Teacher {
             : 0;
         if (studentRes == quotedString) return new TestResult(true, "");
         else return new TestResult(false, "Incorrect count for input string: '" + testStrings +
-            "' expected '" + quotedString + "' but was '" + studentRes+"'");
+            "' expected '" + quotedString + "' but was '" + studentRes + "'");
+    }
+
+    private _testLessonFive(student: StreamHandler & LessonFive, testStrings: string[]): TestResult {
+        this.sendTestStrings(testStrings, student);
+        let studentRes: string[] = student.getAllQuotedStrings();
+        var inQuote = false;
+        var emittedStrings: string[] = [];
+        var currentString: string = "";
+        var i = 0;
+        testStrings
+            .forEach(s => {
+                if (s == '"') {
+                    if (inQuote) {
+                        emittedStrings[i++] = currentString;
+                        currentString = "";
+                    }
+                    inQuote = !inQuote;
+                } else if (inQuote) currentString += s;
+            });
+        var success = true;
+        if (studentRes.length == emittedStrings.length) {
+            for (var j = 0; j < studentRes.length; j++) {
+                if (studentRes[j] != emittedStrings[j]) {
+                    success = false;
+                    return new TestResult(false, "Incorrect value for quoted strings: '" + testStrings +
+                        "' expected array of" + emittedStrings + ", but was " + studentRes)
+                }
+            }
+        } else return new TestResult(false, "Incorrect count for quoted strings: '" + testStrings +
+            "' expected " + emittedStrings.length + " strings in array but was " + studentRes.length);
+       return new TestResult(true, "");
     }
 }
